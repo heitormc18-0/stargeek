@@ -1,0 +1,190 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css");
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 160px auto auto;
+    grid-template-areas: 
+    "cabecalho"
+    "formulario"
+    "rodape";
+}
+
+header{
+    grid-area: cabecalho;
+    display: flex; 
+    background-color: #4D82A6;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.direita > a >i{
+    font-size: 4rem;
+    color: black;
+}
+
+.direita{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 80px;
+    padding-right: 20px;
+}
+
+header > div> p{
+    font-family: 'Lexend Exa';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 45px;
+    color: #FFFFFF;
+    width: 500px;
+    height: 90px;
+    word-wrap: break-word;
+    }
+
+   
+    .logotexto{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .sairimg{
+        background-size: 100%;
+        width: 100px;
+        height: 100px;
+        margin-right: 30px;
+    }
+
+form{
+    grid-area: formulario;
+    display: grid;
+    grid-template-columns: 45vw 45vw;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 
+    "c c"
+    "e d"
+    "b b";
+    place-items: center;
+    background-color: #B8DBF3;
+    padding: 20px;
+}
+
+form > h1{
+    grid-area: c;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+main{
+    grid-area: e;
+    display: flex;
+    flex-direction: column;
+  
+}
+
+aside{
+    background-color: #B8DBF3;
+    grid-area: d;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+label{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 48px;
+    color: #000000;
+    display: block;
+}
+
+
+input{
+    width: 300px;
+    height: 77px;
+    background: white;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-left: none;
+    margin-left: none;
+}
+
+
+
+.linha{
+    display: flex;
+    align-items: center;
+}
+
+.linha > div{
+    font-size: 2rem;
+    background-color: white;
+    height: 77px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+}
+
+
+
+.baixo{
+    grid-area: b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    border: 1px solid black;
+    border-radius: 20px;
+    
+}
+
+input[type="submit"]{
+    background-color: #3A37C7;
+    border-radius: 20px;
+    font-size: 30px;
+}
+
+.baixo > a{
+    text-decoration: none;
+}
+
+
+
+footer{
+    grid-area: rodape;
+    background-color: #B8DBF3;
+}
+
+footer > img{
+    width: 100%;
+}
+
+@media(max-width: 800px) {
+
+    form{
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto;
+        grid-template-areas: 
+        "c"
+        "e"
+        "d"
+        "b";
+        place-items: center;
+        background-color: #B8DBF3;
+    }
+
+}
