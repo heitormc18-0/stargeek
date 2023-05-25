@@ -124,7 +124,7 @@ font-size: 1.5rem;
 color: black;
 }
 
-.btn > a{
+.btn > button{
 margin-top: 20px;
 padding: 10px;
 color: black;

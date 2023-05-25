@@ -30,8 +30,12 @@
 
     </header>
 
-    <form action="login2.html">
-        <h1>CADASTRE-SE</h1>
+    
+    
+    <form action="" id="formulario">
+        
+        <h1><div class="mensagem"></div> <br> CADASTRE-SE</h1>
+        
         <main>
             <label>Nome Completo</label>
 
@@ -39,7 +43,7 @@
             <div>   
             <i class="bi bi-people-fill"></i>
             </div> 
-            <input type="text">
+            <input type="text" id="nome">
             </div>
         
             <label>Data de nascimento</label>
@@ -47,7 +51,7 @@
             <div>
             <i class="bi bi-calendar-week"></i>
             </div>
-            <input type="date">
+            <input type="date" id="nascimento">
         </div>
 
             <label>E-mail</label>
@@ -55,7 +59,7 @@
             <div>
             <i class="bi bi-envelope-at-fill"></i>
             </div>
-            <input type="email">
+            <input type="email" id="email">
             </div>
         </main>
 
@@ -65,21 +69,21 @@
             <div>
             <i class="bi bi-lock-fill"></i> 
             </div> 
-            <input type="password">
+            <input type="password" id="senha1">
             </div>
             <label>Confirme sua senha</label>
             <div class="linha">
             <div>
             <i class="bi bi-lock-fill"></i>
             </div>
-            <input type="password">
+            <input type="password" id="senha2">
             </div>
             <label>Número de celular</label>
             <div class="linha">
             <div>
             <i class="bi bi-phone-fill"></i>
             </div>
-            <input type="number">
+            <input type="number" id="celular">
             </div>
         </aside>
 
@@ -93,6 +97,7 @@
         <img src="imagens/Vector.png" alt="">
     </footer>
 
+    <script src="cadastro2.js"></script>
 </div>
 </body>
 </html>

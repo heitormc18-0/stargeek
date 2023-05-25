@@ -126,3 +126,8 @@ footer{
 footer > img{
     width: 100%;
 }
+
+.card > img{
+    max-width: 180px;
+    max-height: 314px;
+}

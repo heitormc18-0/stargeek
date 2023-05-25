@@ -34,9 +34,9 @@
             <div class="inscricao">
                 <label for="nome">Nome do item</label>
                  
-                <input type="text">
+                <input type="text" id="nome">
                 
-                
+                <br> <br>
                 <label for="nome">Escolha a Categoria</label>
                 
                 <select name="slcategoria" id="icategoria">
@@ -47,6 +47,9 @@
                     <option value="A">Animes</option>
                     <option value="O">Outros</option>
                 </select>
+                <br><br>
+                <label for="foto">Foto</label>
+                <input type="file" name="foto" id="foto">
             </div>
             <div class="formdireita">
                 <p>Descrição</p>
@@ -56,7 +59,7 @@
             </div>     
 
                 <div>
-                     <input type="submit" value="Adicionar">
+                     <input type="submit" value="Cadastrar" class="btncadastrar">
                    
                 </div>
 
@@ -71,6 +74,6 @@
     
     </div>
 
-    
+    <script src="cadastroitem.js"></script>
 </body>
 </html>
