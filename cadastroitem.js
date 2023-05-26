@@ -1,11 +1,22 @@
 const nomeObra = document.getElementById("nome");
 const categoria = document.getElementById("icategoria");
-const fotoa = document.getElementById("foto");
+const foto = document.getElementById("foto");
 const descricao = document.getElementById("idescricao");
 const botaocadastrar = document.querySelector(".btncadastrar");
 
+var url = new URL(window.location.href);
+var peditar = url.searchParams.get("peditar");
+var pindice = url.searchParams.get("indice");
+
+if (peditar == "true"){
+    editar(pindice);
+}
+
+
+
 
 botaocadastrar.onclick = (evento) =>{
+    if((peditar != "true") || (peditar == null)){
     evento.preventDefault();
     fenvio()
     .then(result =>{
@@ -28,10 +39,13 @@ botaocadastrar.onclick = (evento) =>{
             alert("Houve erro no envio do arquivo");
         }
     });
-    
+    }
+    else{
+        editarenvio(evento);
+        
+    }
 
 }
-
 
 var nomeArq;
 async function fenvio() {
@@ -63,3 +77,44 @@ async function fenvio() {
         return false;
     }
 }
+
+function editar(indice){
+    nomeObra.value = "";
+    descricao.value = "";
+    foto.files[0] = null; 
+    let dados = JSON.parse(localStorage.getItem("catalogo"));
+    nomeObra.value = dados[indice].nome;
+    descricao.value = dados[indice].descricao;
+    fotoa = dados[indice].foto;
+  }
+
+var fotoa;
+
+  function editarenvio(evento){
+       evento.preventDefault();
+      if ((fotoa != foto.value)&&(foto.value != "")){
+   
+      fenvio()
+      .then(result =>{
+                      if(result){
+                        salvaEdicao(nomeArq);
+                         }
+                      });
+     }
+     else
+     {
+          salvaEdicao(foto);
+     } 
+  }
+  
+function salvaEdicao(pfoto){
+  let dados = JSON.parse(localStorage.getItem("catalogo"));
+  dados[pindice].nome = nomeObra.value;
+  dados[pindice].descricao = descricao.value;
+  dados[pindice].foto = pfoto;
+  dados[pindice].categoria = categoria.value
+  localStorage.setItem("catalogo", JSON.stringify(dados));
+  window.location.assign("catalogo.html")
+
+}
+  
