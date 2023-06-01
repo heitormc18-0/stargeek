@@ -2,7 +2,10 @@ const cardsa = document.getElementById("assistir");
 const cardsl = document.getElementById("ler");
 const cardso = document.getElementById("ouvir");
 
-carregarcatalogo()
+var emaillogado;
+femailLogado();
+
+carregarcatalogo();
 
         function carregarcatalogo(){
             let dados = JSON.parse(localStorage.getItem("catalogo"));
@@ -15,6 +18,7 @@ carregarcatalogo()
 
 
         dados.forEach((elemento, indice) => {
+            if(elemento.email == emaillogado){
             if(elemento.categoria == "A" || elemento.categoria == "F" || elemento.categoria == "S"){
             let divcard = document.createElement("div")
             divcard.setAttribute("class", "card")
@@ -30,7 +34,7 @@ carregarcatalogo()
             `
             
             cardsa.appendChild(divcard);
-        }
+        }}
         }
         )
         };
@@ -38,16 +42,18 @@ carregarcatalogo()
         carregarcatalogo2()
 
         function carregarcatalogo2(){
+            
             let dados = JSON.parse(localStorage.getItem("catalogo"));
             let divcard = document.createElement("div");
             if (dados == null){
                 divcard.innerHTML = " <p> Nenhum item encontrado </p>";
-                cardl.appendChild(divcard);
+                cardsl.appendChild(divcard);
                 return null
-            } 
+            }
 
 
         dados.forEach((elemento, indice) => {
+            if(elemento.email == emaillogado){
             if(elemento.categoria == "L"){
             let divcard = document.createElement("div")
             divcard.setAttribute("class", "card")
@@ -63,7 +69,7 @@ carregarcatalogo()
             `
             
             cardsl.appendChild(divcard);
-        }
+        }}
         }
         )
         };
@@ -75,12 +81,13 @@ carregarcatalogo()
             let divcard = document.createElement("div");
             if (dados == null){
                 divcard.innerHTML = " <p> Nenhum item encontrado </p>";
-                cards.appendChild(divcard);
+                cardso.appendChild(divcard);
                 return null
             }
 
 
         dados.forEach((elemento, indice) => {
+            if(elemento.email == emaillogado){
             if(elemento.categoria == "M"){
             let divcard = document.createElement("div")
             divcard.setAttribute("class", "card")
@@ -97,7 +104,7 @@ carregarcatalogo()
             
             cardso.appendChild(divcard);
         }
-        }
+        }}
         )
         };
 
@@ -122,3 +129,12 @@ editar.onclick = () =>{
     window.location.assign("cadastroitem.html");
 }
 
+function femailLogado(){
+    let dados = sessionStorage.getItem("logado");
+    if(dados == null){
+        window.location.assign("login2.html");
+    }
+    else{
+        emaillogado = dados;
+    }
+}
